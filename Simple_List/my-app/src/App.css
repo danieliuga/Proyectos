@@ -1,0 +1,13 @@
+.app {
+  background-color: blanchedalmond;
+  color: black;
+}
+
+.app-header {
+  text-align: center;
+}
+
+.content {
+  padding-bottom: 15px;
+  text-align: center;
+}

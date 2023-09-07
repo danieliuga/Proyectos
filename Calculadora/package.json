@@ -1,0 +1,7 @@
+{
+  "name": "Calculadora",
+  "version": "1.0.0",
+  "description": "The fucking calculator",
+  "main": "index.js",
+  "license": "MIT"
+}
