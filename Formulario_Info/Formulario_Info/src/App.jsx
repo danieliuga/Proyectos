@@ -16,6 +16,8 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
+
+
     let hasErrors = false;
     const userMaxLength = 10;
     if (!user) {
@@ -61,6 +63,7 @@ function App() {
     if (!hasErrors) {
       console.log('Form submitted successfully'); 
     }
+    
   };
 
   const handleClear = () => {
@@ -143,7 +146,6 @@ function App() {
               <label htmlFor="country">Country:</label>
               <select
                 id="country"
-                className={`boxInput ${userErrors ? 'error' : ''}`}
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
               >
@@ -152,9 +154,6 @@ function App() {
                 <option value="argentina">Argentina</option>
                 <option value="rumania">Rumania</option>
               </select>
-              {userErrors && (
-                <div className="error-message">{userErrors}</div>
-              )}
             </div>
             <div className="boxInput">
               <label htmlFor="dni">DNI:</label>

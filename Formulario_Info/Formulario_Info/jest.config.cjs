@@ -9,6 +9,9 @@ module.exports = {
         uuid: require.resolve('uuid')
     },
     collectCoverage: true,
+    moduleNameMapper: {
+        "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+    },
     coveragePathIgnorePatterns: [
         'src/__tests__/',
         'node_modules/',
