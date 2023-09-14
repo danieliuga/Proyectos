@@ -1,11 +1,11 @@
 {
-  "name": "formulario-info",
+  "name": "formulario-real",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "vite build",
     "dev": "vite",
+    "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test:all": "jest --config jest.config.cjs --testRegex jest-cucumber-setup-all.js",

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Form from '../../components/Form.jsx'
+import Form from '../../src/Components/Form'
 
 export const formulario = ({
     given: Given,
@@ -10,11 +10,11 @@ export const formulario = ({
     then: Then
 }) => {
     Given('you open the form', () => {
-        render(<Form/>)
+        render(<Form />)
     })
 
     When('you write {string} in user', (text) => {
-        const userInput = screen.getByLabelText('User')
+        const userInput = screen.getByLabelText('User') // Asegúrate de tener un label adecuado en tu formulario
         fireEvent.change(userInput, { target: { value: text } })
     })
 
@@ -59,5 +59,3 @@ export const formulario = ({
         expect(screen.getByText('Form submitted successfully')).toBeInTheDocument()
     })
 }
-
-export default formulario
