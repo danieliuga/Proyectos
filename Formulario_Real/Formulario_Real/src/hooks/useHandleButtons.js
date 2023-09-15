@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
-export function useHandleButtons({user, name, surname, country, dni}) {
+export function useHandleButtons({user, name, surname, dni, setUser, setName, setSurname, setCountry, setDni}) {
 
     const [userErrors, setUserErrors] = useState('');
     const [nameErrors, setNameErrors] = useState('');
     const [surnameErrors, setSurnameErrors] = useState('');
     const [dniErrors, setDniErrors] = useState('');
-    const [submitted, setSubmitted] = useState(false);
+    const [submitted, setSubmitted] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -57,7 +57,7 @@ export function useHandleButtons({user, name, surname, country, dni}) {
             console.log('Form submitted successfully');
         }
 
-        //setSubmitted(hasErrors);
+        setSubmitted(true);
 
     };
 
@@ -81,13 +81,13 @@ export function useHandleButtons({user, name, surname, country, dni}) {
         setName('');
         setSurname('');
         setCountry('Choose a country');
-        setDni('')
+        setDni('');
         setUserErrors('');
         setNameErrors('');
         setSurnameErrors('');
         setDniErrors('');
     };
 
-    return {userErrors, nameErrors, surnameErrors, dniErrors, submitted, handleSubmit, handleClear}
+    return {userErrors, nameErrors, surnameErrors, dniErrors, handleSubmit, handleClear, submitted};
 }
 

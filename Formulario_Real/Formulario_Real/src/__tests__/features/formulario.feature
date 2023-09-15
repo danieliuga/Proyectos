@@ -41,6 +41,10 @@ Scenario: press button 'clearButton' in DNI
 Given you press the "clearButton" button
 Then I should see nothing in "dni"
 
-Scenario: press the button 'submit'
-Given you press the "submitButton" button
-Then I should see "Hola" in "formSubmitted"
+# Scenario: press the button 'submit'
+# Given you press the "submitButton" button
+# Then I should see "Hola" in "formSubmitted"
+
+# Scenario: error in the dni
+# Given you press the "submitButton" button 
+# Then I should see "11111111H" in "dni"

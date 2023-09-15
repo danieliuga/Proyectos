@@ -10,7 +10,19 @@ export function Form() {
     const [surname, setSurname] = useState('');
     const [country, setCountry] = useState('Choose a country');
     const [dni, setDni] = useState('');
-    const errors = useHandleButtons({user:user, name:name, surname:surname, dni:dni});
+    //const errors = useHandleButtons({user:user, name:name, surname:surname, dni:dni});
+
+    const errors = useHandleButtons({
+        user: user,
+        name: name,
+        surname: surname,
+        dni: dni,
+        setUser: setUser,
+        setName: setName,
+        setSurname: setSurname,
+        setCountry: setCountry,
+        setDni: setDni,
+    });    
 
     return (
         <div className="hola" data-testid="formulario">
@@ -97,14 +109,14 @@ export function Form() {
                         <button type="button" onClick={errors.handleClear} data-testid="clearButton">
                             Clear
                         </button>
-
+                        
                     </footer>
                 </form>
             </section>
         </div>
     );
 }
-
-/*<div data-testid="formSubmitted">
-                            {!submitted && "Hola"}
+/*
+<div data-testid="formSubmitted">
+                            {!submitted}
                         </div>*/
