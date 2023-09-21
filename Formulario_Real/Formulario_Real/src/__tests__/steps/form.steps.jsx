@@ -35,17 +35,8 @@ export const formulario = ({
     Then(/^I should see "(.*)" in "(.*)"$/, (text, textBox) => {
         var theValue = false
         if (screen.getByTestId(textBox).value == text) theValue = true;
-        console.log(screen.getByTestId(textBox).value + "--------------------------------")
         expect(theValue).toBe(true)
-    });
-
-    /*Then(/^I should see "(.*)" in "(.*)"$/, (text, textBox) => {
-        var theValue = false
-        const inputValue = screen.getByTestId(textBox).value;
-        if (inputValue == text) theValue = true;
-        expect(theValue).toBe(true);
-    });*/
-    
+    }); 
 
     Then(/^I should see nothing in "(.*)"$/, (nullValue) => {
         const element = screen.getByTestId(nullValue);

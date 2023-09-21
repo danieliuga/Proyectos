@@ -1,93 +1,83 @@
 import { useState, useEffect } from 'react';
+//import { validateDNI } from '../services/validateDni';
 
-export function useHandleButtons({user, name, surname, dni, setUser, setName, setSurname, setCountry, setDni}) {
+export function useHandleButtons({ user, name, surname, dni, setUser, setName, setSurname, setCountry, setDni }) {
 
-    const [userErrors, setUserErrors] = useState('');
-    const [nameErrors, setNameErrors] = useState('');
-    const [surnameErrors, setSurnameErrors] = useState('');
-    const [dniErrors, setDniErrors] = useState('');
-    const [submitted, setSubmitted] = useState(false)
+  const [errors, setErrors] = useState({});
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  const [data, setData] = useState({
+    user: '',
+    name: '',
+    surname: '',
+    country: 'Choose a country',
+    dni: '',
+  });
 
-        let hasErrors = false;
-        const userMaxLength = 10;
-        if (!user) {
-            setUserErrors('Required');
-            hasErrors = true;
-        }
-        if (!name) {
-            setNameErrors('Required');
-            hasErrors = true;
-        }
-        if (!surname) {
-            setSurnameErrors('Required');
-            hasErrors = true;
-        }
-        if (!dni) {
-            setDniErrors('Required');
-            hasErrors = true;
-        }
+  const handleErrors = () => {
 
-        if (user.length > userMaxLength) {
-            userErrors.user = `User name cannot exceed ${userMaxLength} characters`;
-            has
-        }
+    if (!user) {
+      errors.user = 'Required';
+    } else if (user.includes(name)) {
+      errors.user = 'User cannot contain name';
+    }
 
-        if (name.includes(user)) {
-            setNameErrors(`Name cannot contain ${user}`);
-            hasErrors = true;
-        }
+    if (!name) {
+      errors.name = 'Required';
+    }
 
-        if (user.includes(name)) {
-            setUserErrors(`User name cannot contain ${name}`);
-            hasErrors = true;
-        }
+    if (!surname) {
+      errors.surname = 'Required';
+    }
 
-        if (!dni) {
-            setDniErrors('Required');
-            hasErrors = true;
-        } else if (!validateDNI(dni)) {
-            setDniErrors('Invalid DNI');
-            hasErrors = true;
-        }
+    if (country == 'Choose a country') {
+      errors.country = 'Required';
+    }
 
-        if (!hasErrors) {
+    if (!dni) {
+      errors.dni = 'Required';
+    }
+    //console.log(errors);
+    return errors;
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const isErrors = handleErrors();
+        if (isErrors == false) {
             console.log('Form submitted successfully');
+        } else {
+            setErrors(isErrors);
         }
+  };
 
-        setSubmitted(true);
+  const handleClear = () => {
+    setUser('');
+    setName('');
+    setSurname('');
+    setCountry('Choose a country');
+    setDni('');
+    setErrors({});
+    setData({
+      user: '',
+      name: '',
+      surname: '',
+      dni: '',
+    });
+  };
 
-    };
-
-    const validateDNI = (dni) => {
-        const dniRegExp = /^\d{8}[A-HJ-NP-TV-Z]$/;
-
-        if (!dni.match(dniRegExp)) {
-            return false;
-        }
-
-        const letter = dni.charAt(dni.length - 1).toUpperCase();
-        const number = dni.substr(0, dni.length - 1);
-        const letterValues = 'TRWAGMYFPDXBNJZSQVHLCKE';
-        const validLetter = letterValues.charAt(number % 23);
-
-        return letter === validLetter;
-    };
-
-    const handleClear = () => {
-        setUser('');
-        setName('');
-        setSurname('');
-        setCountry('Choose a country');
-        setDni('');
-        setUserErrors('');
-        setNameErrors('');
-        setSurnameErrors('');
-        setDniErrors('');
-    };
-
-    return {userErrors, nameErrors, surnameErrors, dniErrors, handleSubmit, handleClear, submitted};
+  return { user,
+    name,
+    surname,
+    dni,
+    setUser,
+    setName,
+    setSurname,
+    setCountry,
+    setDni,
+    errors,
+    handleSubmit,
+    handleClear,
+    handleErrors};
 }
 
