@@ -1,5 +1,6 @@
 
-export function validateDNI(dni, selectCountry) {
+export function validateDNI(dni, country) {
+  var selectCountry = country;
   if (selectCountry === 'España') {
     const dniRegExp = /^\d{8}[A-HJ-NP-TV-Z]$/;
 

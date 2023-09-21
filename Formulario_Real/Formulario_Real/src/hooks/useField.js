@@ -4,8 +4,11 @@ const useField = () => {
 
     const [value, setValue] = useState('');
     const [className, setClassName] = useState('');
-    const [error, setError] = useState(false);
+    const [classNameMessage, setClassNameMessage] = useState('');
     const [initialized, setInitialized] = useState(false);
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(false);
+    const [message, setMessage] = useState('');
 
     useEffect(() => {
         if (initialized) {
@@ -16,9 +19,15 @@ const useField = () => {
             if (totalErrors > 0) {
                 setError(true)
                 setClassName('error')
+                setErrorMessage(true)
+                setClassNameMessage('Required')
+                setMessage('Error')
             } else {
                 setError(false)
                 setClassName('')
+                setErrorMessage(false)
+                setClassNameMessage('')
+                setMessage('')
             }
         }
 
@@ -33,7 +42,7 @@ const useField = () => {
         setInitialized(true)
     }
 
-    return { value, className, error, onChange }
+    return { value, message, className, classNameMessage, error, errorMessage, onChange, handleClearField }
 
 }
 export default useField
