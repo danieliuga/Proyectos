@@ -3,13 +3,10 @@ import { useState, useEffect } from 'react';
 const useField = () => {
 
     const [value, setValue] = useState('');
+    const [initialized, setInitialized] = useState(false);
     const [className, setClassName] = useState('');
     const [classNameMessage, setClassNameMessage] = useState('');
-    const [initialized, setInitialized] = useState(false);
     const [error, setError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(false);
-    const [message, setMessage] = useState('');
-    const [errorDuplicate, setErrorDuplicate] = useState('');
 
     useEffect(() => {
       
@@ -21,19 +18,12 @@ const useField = () => {
             if (totalErrors > 0) {
                 setError(true)
                 setClassName('error')
-                setErrorMessage(true)
                 setClassNameMessage('Required')
-                setMessage('Error')
-                setErrorDuplicate('user cannot conntain name')
 
             } else {
                 setError(false)
                 setClassName('')
-                setErrorMessage(false)
                 setClassNameMessage('')
-                setMessage('')
-            setErrorDuplicate('')
-
             }
         }
 
@@ -48,7 +38,7 @@ const useField = () => {
         setInitialized(true)
     }
 
-    return { value, setError, message, errorDuplicate, className, classNameMessage, error, errorMessage, onChange, handleClearField }
+    return { value, setError, setClassNameMessage, className, classNameMessage, error, onChange, handleClearField }
 
 }
 export default useField

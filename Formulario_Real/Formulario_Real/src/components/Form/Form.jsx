@@ -6,7 +6,8 @@ import { validateDNI } from '../../services/validateDni';
 
 export function Form() {
 
-    const {setError} = useField();
+    const {setError, error} = useField();
+    const {setClassNameMessage, classNameMessage} = useField();
 
     const user = useField();
     const name = useField();
@@ -23,10 +24,11 @@ export function Form() {
             setDNIValidation(false);
         }
 
-        if (user.value.includes(name.value)) {
-            //user.error = true;
-            setError(user.error = true)
-
+        if (user.value.includes(name.value) && name.value != '') {
+            user.error = true;
+            setError(user.error)
+            setClassNameMessage('user cannot conntain name')
+            console.log(classNameMessage);
         }
         
         
@@ -83,8 +85,7 @@ export function Form() {
                                 data-testid="user"
                                 placeholder='Blackpanther'
                             />
-                            <div className='error-message'>{user.classNameMessage}</div>
-                            <div className='error-message'>{user.errorDuplicate}</div>
+                            <div className='error-message'>{classNameMessage}</div>
                         </div>
                         <div className="boxInput">
                             <label htmlFor="name">Name:</label>

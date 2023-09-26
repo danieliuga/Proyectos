@@ -3,12 +3,10 @@ import { useState, useEffect } from 'react';
 const useSelector = () => {
 
     const [value, setValue] = useState('Choose a country');
+    const [initialized, setInitialized] = useState(false);
     const [className, setClassName] = useState('');
     const [classNameMessage, setClassNameMessage] = useState('');
-    const [initialized, setInitialized] = useState(false);
     const [error, setError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(false);
-    const [message, setMessage] = useState('');
 
     useEffect(() => {
         if (initialized) {
@@ -19,17 +17,13 @@ const useSelector = () => {
             if (totalErrors > 0) {
                 setError(true)
                 setClassName('error')
-                setErrorMessage(true)
                 setClassNameMessage('Required')
-                setMessage('Error')
             }
         }
         return () => {
-            setError(false),
+            setError(false)
             setClassName('')
-            setErrorMessage(false)
             setClassNameMessage('')
-            setMessage('')
         }
     }, [value])
 
@@ -42,7 +36,7 @@ const useSelector = () => {
         setValue(e.target.value)
     }
 
-    return { value, message, className, classNameMessage, error, errorMessage, onChange, handleClearSelector }
+    return { value, className, classNameMessage, error, onChange, handleClearSelector }
 
 }
 export default useSelector
