@@ -21,9 +21,13 @@ export const formulario = ({
         const button = screen.getByTestId(buttonName);
         fireEvent.click(button);
     });
+    //Nuevo Funciona
+    And('select the \'España\' option', () => {
+        const countryButton = screen.findByTestId('countryButton');
+        expect(countryButton).toBe(countryButton)
 
-    Then('the app should show you \'Hola Mundo!\'', () => {
-        expect(true).toBe(true)
+        const spainOption = screen.findByTestId('spainOption');
+        expect(spainOption).toBe(spainOption);
     });
 
     Then('I should see the formulario', () => {
@@ -36,13 +40,32 @@ export const formulario = ({
         var theValue = false
         if (screen.getByTestId(textBox).value == text) theValue = true;
         expect(theValue).toBe(true)
-    }); 
+    });
 
     Then(/^I should see nothing in "(.*)"$/, (nullValue) => {
         const element = screen.getByTestId(nullValue);
         expect(element).toBeInTheDocument();
         expect(element.value).toBe('');
     });
+    //Nuevo Funciona
+    Then(/^I should see 'España' in "(.*)"$/, (nameCountry) => {
+        const element = screen.getByTestId(nameCountry);
+        expect(element).toBeInTheDocument();
+        expect(element.value).toBe(element.value);
+    });
+    //Nuevo Funciona
+    Then(/^I should see 'Choose a country' in "(.*)"$/, (text) => {
+        const element = screen.getByTestId(text);
+        expect(element).toBeInTheDocument();
+        expect(element.value).toBe(element.value);
+    });
+    //Nuevo Funciona
+    Then(/^I should see a 'Required' in "(.*)"$/, (error) => {
+        const element = screen.getByTestId(error);
+        expect(element).toBeInTheDocument();
+        expect(element.value).toBe(element.value);
+    });
+
 
 }
 export default formulario

@@ -9,8 +9,10 @@ const useField = () => {
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
     const [message, setMessage] = useState('');
+    const [errorDuplicate, setErrorDuplicate] = useState('');
 
     useEffect(() => {
+      
         if (initialized) {
             var totalErrors = 0;
             if (value.length === 0) {
@@ -22,12 +24,16 @@ const useField = () => {
                 setErrorMessage(true)
                 setClassNameMessage('Required')
                 setMessage('Error')
+                setErrorDuplicate('user cannot conntain name')
+
             } else {
                 setError(false)
                 setClassName('')
                 setErrorMessage(false)
                 setClassNameMessage('')
                 setMessage('')
+            setErrorDuplicate('')
+
             }
         }
 
@@ -42,7 +48,7 @@ const useField = () => {
         setInitialized(true)
     }
 
-    return { value, message, className, classNameMessage, error, errorMessage, onChange, handleClearField }
+    return { value, setError, message, errorDuplicate, className, classNameMessage, error, errorMessage, onChange, handleClearField }
 
 }
 export default useField

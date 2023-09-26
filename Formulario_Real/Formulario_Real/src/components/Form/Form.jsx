@@ -6,6 +6,8 @@ import { validateDNI } from '../../services/validateDni';
 
 export function Form() {
 
+    const {setError} = useField();
+
     const user = useField();
     const name = useField();
     const surname = useField();
@@ -20,11 +22,19 @@ export function Form() {
         } else {
             setDNIValidation(false);
         }
-    }, [dni.value, country.value])
+
+        if (user.value.includes(name.value)) {
+            //user.error = true;
+            setError(user.error = true)
+
+        }
+        
+        
+    }, [dni.value, country.value, user.value, name.value]);
 
     const onSubmit = (e) => {
         e.preventDefault()
-        console.log(user.error, name.error, surname.error, dni.error, country.error)
+
         if (user.error == false &&
             name.error == false &&
             surname.error == false &&
@@ -71,8 +81,10 @@ export function Form() {
                                 onChange={user.onChange}
                                 maxLength={10}
                                 data-testid="user"
+                                placeholder='Blackpanther'
                             />
                             <div className='error-message'>{user.classNameMessage}</div>
+                            <div className='error-message'>{user.errorDuplicate}</div>
                         </div>
                         <div className="boxInput">
                             <label htmlFor="name">Name:</label>
@@ -83,6 +95,7 @@ export function Form() {
                                 className={name.className}
                                 onChange={name.onChange}
                                 data-testid="name"
+                                placeholder='Toni'
                             />
                             <div className='error-message'>{name.classNameMessage}</div>
                         </div>
@@ -95,6 +108,7 @@ export function Form() {
                                 className={surname.className}
                                 onChange={surname.onChange}
                                 data-testid="surname"
+                                placeholder='Recio'
                             />
                             <div className='error-message'>{surname.classNameMessage}</div>
                         </div>
@@ -105,6 +119,7 @@ export function Form() {
                                 value={country.value}
                                 onChange={country.onChange}
                                 className={country.className}
+                                data-testid="countryButton"
                             >
                                 <option value={'Choose a country'}>Choose a country</option>
                                 <option value="España">España</option>
@@ -122,6 +137,7 @@ export function Form() {
                                 className={dni.className}
                                 onChange={dni.onChange}
                                 data-testid="dni"
+                                placeholder='11111111H'
                             />
                             <div className='error-message'>{dni.classNameMessage}</div>
                         </div>

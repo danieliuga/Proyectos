@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.41% </span>
+                <span class="strong">27.77% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/17</span>
+                <span class='fraction'>5/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>2/7</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.41% </span>
+                <span class="strong">27.77% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/17</span>
+                <span class='fraction'>5/18</span>
             </div>
         
             
@@ -86,48 +86,90 @@
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-export function validateDNI(dni, selectCountry) {
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (selectCountry === 'España') {
-    const dniRegExp = <span class="cstat-no" title="statement not covered" >/^\d{8}[A-HJ-NP-TV-Z]$/;</span>
+export function validateDNI(dni, country) {
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!dni.match(dniRegExp)) {</span>
-<span class="cstat-no" title="statement not covered" >      return false;</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (country === 'España') {
+    /*const dniRegExp = /^\d{8}[A-HJ-NP-TV-Z]$/;
+&nbsp;
+    if (!dni.match(dniRegExp)) {
+      return false;
     }
+    
+    const letter = dni.charAt(dni.length - 1).toUpperCase();
+    const number = dni.substr(0, dni.length - 1);
+    const letterValues = 'TRWAGMYFPDXBNJZSQVHLCKE';
+    const validLetter = letterValues.charAt(number % 23);
+    return letter === validLetter;
+    */
 &nbsp;
-    const letter = <span class="cstat-no" title="statement not covered" >dni.charAt(dni.length - 1).toUpperCase();</span>
-    const number = <span class="cstat-no" title="statement not covered" >dni.substr(0, dni.length - 1);</span>
-    const letterValues = <span class="cstat-no" title="statement not covered" >'TRWAGMYFPDXBNJZSQVHLCKE';</span>
-    const validLetter = <span class="cstat-no" title="statement not covered" >letterValues.charAt(number % 23);</span>
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (dni.length !== 9) {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      }
+      const VALID_LETTERS = <span class="cstat-no" title="statement not covered" >"TRWAGMYFPDXBNJZSQVHLCKE";</span>
+      const ID_NUMBER = <span class="cstat-no" title="statement not covered" >dni.substring(0, 8);</span>
+      const ID_LETTER = <span class="cstat-no" title="statement not covered" >dni.charAt(8).toUpperCase();</span>
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!/^\d+$/.test(ID_NUMBER)) {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      }
+      const calculatedLetter = <span class="cstat-no" title="statement not covered" >VALID_LETTERS[ID_NUMBER % 23];</span>
+<span class="cstat-no" title="statement not covered" >      return ID_LETTER === calculatedLetter;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return letter === validLetter;</span>
-  } else <span class="missing-if-branch" title="if path not taken" >I</span>if (selectCountry === 'Argentina') {
+  } else <span class="missing-if-branch" title="if path not taken" >I</span>if (country === 'Argentina') {
     const dniRegExp = <span class="cstat-no" title="statement not covered" >/^[0-9]{8}$/;</span>
 <span class="cstat-no" title="statement not covered" >    return dni.match(dniRegExp) !== null;</span>
-  } else <span class="missing-if-branch" title="if path not taken" >I</span>if (selectCountry === 'Rumania') {
+  } else <span class="missing-if-branch" title="if path not taken" >I</span>if (country === 'Rumania') {
     const dniRegExp = <span class="cstat-no" title="statement not covered" >/^[0-9]{6}[A-Z]{2}$/;</span>
 <span class="cstat-no" title="statement not covered" >    return dni.match(dniRegExp) !== null;</span>
   }
@@ -139,7 +181,7 @@ export function validateDNI(dni, selectCountry) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-21T07:32:59.235Z
+                at 2023-09-26T08:19:58.955Z
             </div>
         <script src="../prettify.js"></script>
         <script>

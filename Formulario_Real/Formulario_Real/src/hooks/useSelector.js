@@ -26,7 +26,7 @@ const useSelector = () => {
         }
         return () => {
             setError(false),
-                setClassName('')
+            setClassName('')
             setErrorMessage(false)
             setClassNameMessage('')
             setMessage('')
