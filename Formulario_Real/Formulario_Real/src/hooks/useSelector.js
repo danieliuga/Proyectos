@@ -17,13 +17,11 @@ const useSelector = () => {
             if (totalErrors > 0) {
                 setError(true)
                 setClassName('error')
-                setClassNameMessage('Required')
             }
         }
         return () => {
             setError(false)
             setClassName('')
-            setClassNameMessage('')
         }
     }, [value])
 
@@ -36,7 +34,7 @@ const useSelector = () => {
         setValue(e.target.value)
     }
 
-    return { value, className, classNameMessage, error, onChange, handleClearSelector }
+    return { value, className, setClassNameMessage, classNameMessage, error, onChange, handleClearSelector }
 
 }
 export default useSelector

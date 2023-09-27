@@ -90,5 +90,11 @@ button:hover {
 .error-message {
     color: red;
     font-size: 0.8rem;
-    margin-top: 5px;
+    margin-top: -10px;
+}
+
+.error-disable {
+    background-color: rgb(37, 2, 1);
+    border: 2px solid red;
+    color: white;
 }

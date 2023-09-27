@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">67.64% </span>
+                <span class="strong">69.23% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>23/34</span>
+                <span class='fraction'>18/26</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">68% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>22/33</span>
+                <span class='fraction'>17/25</span>
             </div>
         
             
@@ -104,25 +104,19 @@
 <a name='L39'></a><a href='#L39'>39</a>
 <a name='L40'></a><a href='#L40'>40</a>
 <a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a>
-<a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L42'></a><a href='#L42'>42</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">48x</span>
-<span class="cline-any cline-yes">48x</span>
-<span class="cline-any cline-yes">48x</span>
-<span class="cline-any cline-yes">48x</span>
-<span class="cline-any cline-yes">48x</span>
-<span class="cline-any cline-yes">48x</span>
-<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">27x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27x</span>
 <span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -131,43 +125,37 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">27x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">27x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">27x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">48x</span></td><td class="text"><pre class="prettyprint lang-js">import { useState, useEffect } from 'react';
+<span class="cline-any cline-yes">27x</span></td><td class="text"><pre class="prettyprint lang-js">import { useState, useEffect } from 'react';
 &nbsp;
 const useSelector = () =&gt; {
 &nbsp;
     const [value, setValue] = useState('Choose a country');
-    const [className, setClassName] = useState('');
-    const [classNameMessage, setClassNameMessage] = useState('');
     const [initialized, setInitialized] = useState(false);
+    const [className, setClassName] = useState('');
+    const [classNameMessage, setClassNameMessage] = useState({
+        country: 'Choose a country'
+    });
     const [error, setError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(false);
-    const [message, setMessage] = useState('');
 &nbsp;
     useEffect(() =&gt; {
         <span class="missing-if-branch" title="if path not taken" >I</span>if (initialized) {
@@ -178,17 +166,11 @@ const useSelector = () =&gt; {
 <span class="cstat-no" title="statement not covered" >            <span class="missing-if-branch" title="if path not taken" >I</span>if (totalErrors &gt; 0) {</span>
 <span class="cstat-no" title="statement not covered" >                setError(true)</span>
 <span class="cstat-no" title="statement not covered" >                setClassName('error')</span>
-<span class="cstat-no" title="statement not covered" >                setErrorMessage(true)</span>
-<span class="cstat-no" title="statement not covered" >                setClassNameMessage('Required')</span>
-<span class="cstat-no" title="statement not covered" >                setMessage('Error')</span>
             }
         }
         return () =&gt; {
             setError(false)
             setClassName('')
-            setErrorMessage(false)
-            setClassNameMessage('')
-            setMessage('')
         }
     }, [value])
 &nbsp;
@@ -201,7 +183,7 @@ const useSelector = () =&gt; {
 <span class="cstat-no" title="statement not covered" >        setValue(e.target.value)</span>
     }
 &nbsp;
-    return { value, message, className, classNameMessage, error, errorMessage, onChange, handleClearSelector }
+    return { value, className, setClassNameMessage, classNameMessage, error, onChange, handleClearSelector }
 &nbsp;
 }
 export default useSelector</pre></td></tr></table></pre>
@@ -211,7 +193,7 @@ export default useSelector</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-26T10:12:07.561Z
+                at 2023-09-27T07:10:21.911Z
             </div>
         <script src="../prettify.js"></script>
         <script>

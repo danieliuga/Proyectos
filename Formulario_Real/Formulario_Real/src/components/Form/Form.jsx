@@ -6,9 +6,6 @@ import { validateDNI } from '../../services/validateDni';
 
 export function Form() {
 
-    const {setError, error} = useField();
-    const {setClassNameMessage, classNameMessage} = useField();
-
     const user = useField();
     const name = useField();
     const surname = useField();
@@ -17,22 +14,24 @@ export function Form() {
     const [dniValidation, setDNIValidation] = useState(true);
 
     useEffect(() => {
-        if (country.value && dni.value) {
-            const isValid = validateDNI(dni.value, country.value);
-            setDNIValidation(isValid);
+        if (user.value.includes(name.value) && name.value.length > 0) {
+            user.addErrorMessage('User cannot contain name')
         } else {
-            setDNIValidation(false);
+            user.removeErrorMessage('User cannot contain name')
         }
 
-        if (user.value.includes(name.value) && name.value != '') {
-            user.error = true;
-            setError(user.error)
-            setClassNameMessage('user cannot conntain name')
-            console.log(classNameMessage);
+    }, [user.value, name.value])
+
+    useEffect(() => {
+        if (validateDNI(dni.value, country.value) == false
+            && dni.value.length > 0
+            && country.value != 'Choose a country') {
+            dni.addErrorMessage('DNI validation failed')
+        } else {
+            dni.removeErrorMessage('DNI validation failed')
         }
-        
-        
-    }, [dni.value, country.value, user.value, name.value]);
+
+    }, [dni.value, country.value]);
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -43,6 +42,7 @@ export function Form() {
             country.error == false &&
             dni.error == false) {
             console.log('Form submitted successfully')
+        } else {
         }
     }
 
@@ -58,11 +58,6 @@ export function Form() {
     const onSubmitForm = (e) => {
 
     };
-
-    /* 
-        - Validar Dni
-        - Hacer mas tests
-    */
 
     return (
         <div className="hola" data-testid="formulario">
@@ -85,8 +80,11 @@ export function Form() {
                                 data-testid="user"
                                 placeholder='Blackpanther'
                             />
-                            <div className='error-message'>{classNameMessage}</div>
                         </div>
+                        <div className='error-message'>{
+                            user.classNameMessage.map(error => {
+                                return <span key={error}>{error}</span>;
+                            })}</div>
                         <div className="boxInput">
                             <label htmlFor="name">Name:</label>
                             <input
@@ -98,8 +96,11 @@ export function Form() {
                                 data-testid="name"
                                 placeholder='Toni'
                             />
-                            <div className='error-message'>{name.classNameMessage}</div>
                         </div>
+                        <div className='error-message'>{
+                            name.classNameMessage.map(error => {
+                                return <span key={error}>{error}</span>;
+                            })}</div>
                         <div className="boxInput">
                             <label htmlFor="surname">Surname:</label>
                             <input
@@ -111,8 +112,11 @@ export function Form() {
                                 data-testid="surname"
                                 placeholder='Recio'
                             />
-                            <div className='error-message'>{surname.classNameMessage}</div>
                         </div>
+                        <div className='error-message'>{
+                            surname.classNameMessage.map(error => {
+                                return <span key={error}>{error}</span>;
+                            })}</div>
                         <div className="boxInput">
                             <label htmlFor="country">Country:</label>
                             <select
@@ -127,8 +131,8 @@ export function Form() {
                                 <option value="Argentina">Argentina</option>
                                 <option value="Rumania">Rumania</option>
                             </select>
-                            <div className='error-message'>{country.classNameMessage}</div>
                         </div>
+                        <div className='error-message'>{country.classNameMessage}</div>
                         <div className="boxInput">
                             <label htmlFor="dni">DNI:</label>
                             <input
@@ -140,8 +144,11 @@ export function Form() {
                                 data-testid="dni"
                                 placeholder='11111111H'
                             />
-                            <div className='error-message'>{dni.classNameMessage}</div>
                         </div>
+                        <div className='error-message'>{
+                            dni.classNameMessage.map(error => {
+                                return <span key={error}>{error}</span>;
+                            })}</div>
                     </main>
 
                     <footer className="footer">
