@@ -72,11 +72,21 @@ Feature: Form
         Given you press the "submitButton" button
         Then I should see a 'Required' in "dni"
 
-# Errores
+    Scenario: validate the dni when you write it in the form
+        Given you select the opction 'España' in "submitButton" button
+        And you write '11111111H' in "dni"
+        Then I shouldn't see the 'User cannot contain name' message in "dni"
 
-# Scenario: validate the dni in Dni text Area
-#     Given you press the "submitButton" button
-#     Then I should see "11111111H" in "dni"
+
+
+#Nuevo
+# Scenario: Manage the error when you write the same words in user and in name
+#     Given you write 'DA' in "user"
+#     And you write 'Da' in "name"
+#     Then I should see a 'User cannot contain name' in "user"
+
+
+# ------------------------------------------------------------
 
 # Form submitted
 

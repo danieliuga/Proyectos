@@ -64,7 +64,7 @@ select {
     margin-top: 20px;
 }
 
-button {
+.submitButton {
     max-width: 280px;
     width: 48%;
     padding: 10px;
@@ -78,8 +78,30 @@ button {
     margin-bottom: 10px;
 }
 
-button:hover {
-    background-color: rgb(93, 233, 210);
+.submitButton:hover {
+    background-color: rgb(10, 165, 10);
+    border: 2px solid;
+    border-color: rgb(32, 226, 32);
+}
+
+.clearButton {
+    max-width: 280px;
+    width: 48%;
+    padding: 10px;
+    background-color: rgb(130, 193, 239);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+}
+
+.clearButton:hover {
+    background-color: rgb(224, 95, 95);
+    border: 2px solid;
+    border-color: red;
 }
 
 .error {

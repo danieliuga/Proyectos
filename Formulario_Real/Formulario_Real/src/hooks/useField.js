@@ -84,7 +84,7 @@ const useField = () => {
     }
     
     return { value, initialized, className, classNameMessage, error,
-        arrayContain,addErrorMessage, removeErrorMessage, setError, 
+        arrayContain, addErrorMessage, removeErrorMessage, setError, 
         setClassNameMessage, onChange, handleClearField, setClassName }
 
 }

@@ -11,7 +11,8 @@ export function Form() {
     const surname = useField();
     const country = useSelector();
     const dni = useField();
-    const [dniValidation, setDNIValidation] = useState(true);
+
+    const {setClassName} = useField();
 
     useEffect(() => {
         if (user.value.includes(name.value) && name.value.length > 0) {
@@ -42,7 +43,9 @@ export function Form() {
             country.error == false &&
             dni.error == false) {
             console.log('Form submitted successfully')
-        } else {
+        } else if (user.error || name.error || surname.error ||
+            country.error || dni.error) {
+            setClassName('error-disable')
         }
     }
 
@@ -152,8 +155,8 @@ export function Form() {
                     </main>
 
                     <footer className="footer">
-                        <button type="submit" data-testid="submitButton" onClick={onSubmit}>Submit</button>
-                        <button type="button" onClick={onClear} data-testid="clearButton">Clear</button>
+                        <button type="submit" className='submitButton' data-testid="submitButton" onClick={onSubmit} >Submit</button>
+                        <button type="button" className='clearButton' onClick={onClear} data-testid="clearButton">Clear</button>
                     </footer>
                 </form>
             </section>
