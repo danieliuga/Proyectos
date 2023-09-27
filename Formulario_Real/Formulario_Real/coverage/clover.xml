@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1695838917348" clover="3.2.0">
-  <project timestamp="1695838917349" name="All files">
-    <metrics statements="136" coveredstatements="81" conditionals="45" coveredconditionals="12" methods="29" coveredmethods="16" elements="210" coveredelements="109" complexity="0" loc="136" ncloc="136" packages="3" files="4" classes="4"/>
+<coverage generated="1695841865716" clover="3.2.0">
+  <project timestamp="1695841865716" name="All files">
+    <metrics statements="165" coveredstatements="86" conditionals="54" coveredconditionals="20" methods="32" coveredmethods="17" elements="251" coveredelements="123" complexity="0" loc="165" ncloc="165" packages="3" files="4" classes="4"/>
     <package name="components.Form">
-      <metrics statements="40" coveredstatements="28" conditionals="24" coveredconditionals="7" methods="15" coveredmethods="5"/>
+      <metrics statements="40" coveredstatements="32" conditionals="24" coveredconditionals="15" methods="15" coveredmethods="7"/>
       <file name="Form.jsx" path="C:\Travelport\Formulario_Real\Formulario_Real\src\components\Form\Form.jsx">
-        <metrics statements="40" coveredstatements="28" conditionals="24" coveredconditionals="7" methods="15" coveredmethods="5"/>
+        <metrics statements="40" coveredstatements="32" conditionals="24" coveredconditionals="15" methods="15" coveredmethods="7"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="18" type="stmt"/>
-        <line num="9" count="31" type="stmt"/>
+        <line num="9" count="30" type="stmt"/>
         <line num="10" count="30" type="stmt"/>
         <line num="11" count="30" type="stmt"/>
         <line num="12" count="30" type="stmt"/>
@@ -27,9 +27,9 @@
         <line num="30" count="0" type="stmt"/>
         <line num="32" count="21" type="stmt"/>
         <line num="37" count="30" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="40" count="0" type="cond" truecount="0" falsecount="7"/>
-        <line num="45" count="0" type="stmt"/>
+        <line num="38" count="6" type="stmt"/>
+        <line num="40" count="6" type="cond" truecount="6" falsecount="1"/>
+        <line num="45" count="6" type="stmt"/>
         <line num="46" count="0" type="cond" truecount="0" falsecount="6"/>
         <line num="48" count="0" type="stmt"/>
         <line num="52" count="30" type="stmt"/>
@@ -40,21 +40,21 @@
         <line num="57" count="4" type="stmt"/>
         <line num="58" count="4" type="stmt"/>
         <line num="61" count="30" type="stmt"/>
-        <line num="65" count="30" type="stmt"/>
-        <line num="89" count="0" type="stmt"/>
-        <line num="105" count="0" type="stmt"/>
-        <line num="121" count="0" type="stmt"/>
-        <line num="153" count="0" type="stmt"/>
-        <line num="172" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="73" count="30" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="129" count="0" type="stmt"/>
+        <line num="161" count="0" type="stmt"/>
+        <line num="180" count="6" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="hooks">
-      <metrics statements="79" coveredstatements="48" conditionals="15" coveredconditionals="3" methods="13" coveredmethods="10"/>
+      <metrics statements="108" coveredstatements="49" conditionals="24" coveredconditionals="3" methods="16" coveredmethods="9"/>
       <file name="useField.js" path="C:\Travelport\Formulario_Real\Formulario_Real\src\hooks\useField.js">
         <metrics statements="54" coveredstatements="31" conditionals="12" coveredconditionals="3" methods="8" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="5" count="151" type="stmt"/>
+        <line num="5" count="150" type="stmt"/>
         <line num="6" count="150" type="stmt"/>
         <line num="7" count="150" type="stmt"/>
         <line num="8" count="150" type="stmt"/>
@@ -105,10 +105,10 @@
         <line num="82" count="6" type="stmt"/>
         <line num="83" count="6" type="stmt"/>
         <line num="86" count="150" type="stmt"/>
-        <line num="91" count="151" type="stmt"/>
+        <line num="91" count="150" type="stmt"/>
       </file>
       <file name="useSelector.js" path="C:\Travelport\Formulario_Real\Formulario_Real\src\hooks\useSelector.js">
-        <metrics statements="25" coveredstatements="17" conditionals="3" coveredconditionals="0" methods="5" coveredmethods="4"/>
+        <metrics statements="54" coveredstatements="18" conditionals="12" coveredconditionals="0" methods="8" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="30" type="stmt"/>
@@ -117,23 +117,52 @@
         <line num="8" count="30" type="stmt"/>
         <line num="9" count="30" type="stmt"/>
         <line num="11" count="30" type="stmt"/>
-        <line num="12" count="18" type="cond" truecount="0" falsecount="1"/>
+        <line num="12" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
         <line num="14" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="17" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="22" count="18" type="stmt"/>
-        <line num="23" count="18" type="stmt"/>
-        <line num="24" count="18" type="stmt"/>
-        <line num="28" count="30" type="stmt"/>
-        <line num="29" count="4" type="stmt"/>
-        <line num="32" count="30" type="stmt"/>
+        <line num="21" count="30" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="30" type="stmt"/>
+        <line num="32" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="37" count="30" type="stmt"/>
-        <line num="40" count="30" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="41" count="30" type="stmt"/>
+        <line num="42" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="50" count="30" type="stmt"/>
+        <line num="51" count="18" type="cond" truecount="0" falsecount="1"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="58" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="76" count="30" type="stmt"/>
+        <line num="77" count="4" type="stmt"/>
+        <line num="80" count="30" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="85" count="30" type="stmt"/>
+        <line num="88" count="30" type="stmt"/>
       </file>
     </package>
     <package name="services">

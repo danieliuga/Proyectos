@@ -1,7 +1,7 @@
 Feature: Form
 
     Background:
-        Given the user open the formulario
+        Given the user open a simple form
 
     Scenario: Check Formulario
         Then I should see the formulario
@@ -77,7 +77,20 @@ Feature: Form
         And you write '11111111H' in "dni"
         Then I shouldn't see the 'User cannot contain name' message in "dni"
 
+    # Scenario: validate a spanish dni when you write it in the form
+    #     Given you select the opction 'España' in "submitButton" button
+    #     And you write "49270614Z" in "dni"
+    #     And there is not error in "dni"
+    #     Then I should see "49270614Z" in "dni"
 
+# No me ha salido
+# Scenario: Trying to send form without select a country
+#     Given you write "Dani" in "user"
+#     And you write "Joel" in "name"
+#     And you write "Iuga" in "surname"
+#     And you write "49270614Z" in "dni"
+#     When you press the "submitButton" button
+#     Then I should see an error message in "country" indicating it's a required field
 
 #Nuevo
 # Scenario: Manage the error when you write the same words in user and in name
@@ -88,19 +101,15 @@ Feature: Form
 
 # ------------------------------------------------------------
 
+# puedo añadir: 
+
 # Form submitted
 
 # Scenario: Send form submitted successfully
 #     Given you press the "submitButton" button
 #     Then I should see "Form submitted successfully" in the console
 
-# Scenario: Intentar Enviar el Formulario sin Seleccionar un País
-#     Given you write "Dani" in "user"
-#     And you write "Joel" in "name"
-#     And you write "Iuga" in "surname"
-#     And you write "49270614z" in "dni"
-#     When you press the "submitButton" button
-#     Then I should see an error message in "country" indicating it's a required field
+
 
 # Scenario: Cambiar la Selección de País
 #     Given you select "España" in the "country" dropdown

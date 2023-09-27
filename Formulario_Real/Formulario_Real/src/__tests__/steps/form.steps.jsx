@@ -9,7 +9,7 @@ export const formulario = ({
     when: When,
     then: Then
 }) => {
-    Given('the user open the formulario', () => {
+    Given('the user open a simple form', () => {
         render(<Form />)
     });
 
@@ -22,7 +22,6 @@ export const formulario = ({
         fireEvent.click(button);
     });
 
-    //Nuevo
     Given(/^you select the opction 'España' in "(.*)" button$/, (arg0) => {
         const countryButton = screen.findByTestId('countryButton');
         expect(countryButton).toBe(countryButton)
@@ -40,6 +39,17 @@ export const formulario = ({
     });
 
     //Nuevo
+    // And(/^you write "(.*)" in "(.*)"$/, (text, textBox) => {
+    //     fireEvent.change(screen.getByTestId(textBox), { target: { value: text } });
+    // });
+
+    //Nuevo
+    // And(/^there is not error in "(.*)"$/, (error) => {
+    //     const element = screen.getByTestId(!error);
+    //     expect(element).toBeInTheDocument();
+    //     expect(element.value).toBe(element.value);
+    // });
+
     And(/^you write '(\d+)H' in "(.*)"$/, (text, textBox) => {
         fireEvent.change(screen.getByTestId(textBox), { target: { value: text } });
     });
@@ -55,6 +65,9 @@ export const formulario = ({
         if (screen.getByTestId(textBox).value == text) theValue = true;
         expect(theValue).toBe(true)
     });
+
+    //Nuevo
+    
 
     Then(/^I should see nothing in "(.*)"$/, (nullValue) => {
         const element = screen.getByTestId(nullValue);
@@ -80,7 +93,6 @@ export const formulario = ({
         expect(element.value).toBe(element.value);
     });
 
-    //nuevo
     Then(/^I shouldn't see the 'User cannot contain name' message in "(.*)"$/, (error) => {
         const element = screen.getByTestId(error);
         expect(element).toBeInTheDocument();
@@ -104,6 +116,23 @@ export default formulario
 
 //Nuevo
     // Then(/^I should see a 'User cannot contain name' in "(.*)"$/, (error) => {
+    //     const element = screen.getByTestId(error);
+    //     expect(element).toBeInTheDocument();
+    //     expect(element.value).toBe(element.value);
+    // });
+
+//Scenario: Trying to send form without select a country
+
+    // And(/^you write "(.*)" in "(.*)"$/, (text, textBox) => {
+    //     fireEvent.change(screen.getByTestId(textBox), { target: { value: text } });
+    // });
+
+    // When(/^you press the "(.*)" button$/, (buttonName) => {
+    //     const button = screen.getByTestId(buttonName);
+    //     fireEvent.click(button);
+    // });
+
+    // Then(/^I should see an error message in "(.*)" indicating it's a required field$/, (error) => {
     //     const element = screen.getByTestId(error);
     //     expect(element).toBeInTheDocument();
     //     expect(element.value).toBe(element.value);

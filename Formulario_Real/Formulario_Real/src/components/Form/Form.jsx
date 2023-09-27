@@ -62,6 +62,14 @@ export function Form() {
 
     };
 
+    /*
+    Lo que me falta:
+        - mas tests
+        - componente de cada input
+        - mejorar descripcion de cada escenario
+        - disable el boton de submit si hay errores
+    */
+
     return (
         <div className="hola" data-testid="formulario">
             <section className="app">
