@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for services/validateDni.js</title>
+    <title>Code coverage report for hooks/useFormField.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">services</a> validateDni.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">hooks</a> useFormField.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.41% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/17</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.41% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/17</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -85,63 +85,51 @@
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">21x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">21x</span>
+<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">21x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">21x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-export function validateDNI(dni, country) {
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">120x</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 &nbsp;
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (country === 'España') {
-    
-    const dniRegExp = <span class="cstat-no" title="statement not covered" >/^[0-9]{8}[A-HJ-NP-TV-Z]$/;</span>
+export function <span class="cstat-no" title="statement not covered" >FormField(</span>{ id, label, type, value, className,
+    onChange, maxLength, placeholder }) {
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (!dni.match(dniRegExp)) {</span>
-<span class="cstat-no" title="statement not covered" >    return false;</span>
-  }
+    return (
+        &lt;div className='boxInput'&gt;
+            &lt;label htmlFor={id}&gt;{label}:&lt;/label&gt;
+            &lt;input
+                type={type}
+                id={id}
+                value={value}
+                className={className}
+                onChange={onChange}
+                maxLength={maxLength}
+                data-testid={id}
+                placeholder={placeholder}
+            /&gt; 
+        &lt;/div&gt;
+    )
+}
 &nbsp;
-  const letter = <span class="cstat-no" title="statement not covered" >dni.charAt(dni.length - 1).toUpperCase();</span>
-  const number = <span class="cstat-no" title="statement not covered" >dni.substr(0, dni.length - 1);</span>
-  const letterValues = <span class="cstat-no" title="statement not covered" >'TRWAGMYFPDXBNJZSQVHLCKE';</span>
-  const validLetter = <span class="cstat-no" title="statement not covered" >letterValues.charAt(Number(number) % 23);</span>
-<span class="cstat-no" title="statement not covered" >  return letter === validLetter;</span>
-&nbsp;
-  } else <span class="missing-if-branch" title="if path not taken" >I</span>if (country === 'Argentina') {
-    const dniRegExp = <span class="cstat-no" title="statement not covered" >/^[0-9]{8}$/;</span>
-<span class="cstat-no" title="statement not covered" >    return dni.match(dniRegExp) !== null;</span>
-  } else <span class="missing-if-branch" title="if path not taken" >I</span>if (country === 'Rumania') {
-    const dniRegExp = <span class="cstat-no" title="statement not covered" >/^[0-9]{6}[A-Z]{2}$/;</span>
-<span class="cstat-no" title="statement not covered" >    return dni.match(dniRegExp) !== null;</span>
-  }
-  return false;
-};
-&nbsp;</pre></td></tr></table></pre>
+export default FormField</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

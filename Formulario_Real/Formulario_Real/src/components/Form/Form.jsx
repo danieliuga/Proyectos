@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './Form.css'
 import useField from '../../hooks/useField';
 import useSelector from '../../hooks/useSelector';
+import FormField from '../../hooks/useFormField';
+import ErrorField from '../../hooks/useErrorField';
 import { validateDNI } from '../../services/validateDni';
 
 export function Form() {
@@ -12,7 +14,7 @@ export function Form() {
     const country = useSelector();
     const dni = useField();
 
-    const {setClassName} = useField();
+    const { setClassName } = useField();
 
     useEffect(() => {
         if (user.value.includes(name.value) && name.value.length > 0) {
@@ -63,7 +65,7 @@ export function Form() {
     };
 
     /*
-    Lo que me falta:
+    Objetivos:
         - mas tests
         - componente de cada input
         - mejorar descripcion de cada escenario
@@ -79,55 +81,39 @@ export function Form() {
 
                 <form onSubmit={onSubmitForm}>
                     <main className="main">
-                        <div className="boxInput">
-                            <label htmlFor="user">User:</label>
-                            <input
-                                type="text"
-                                id="user"
-                                value={user.value}
-                                className={user.className}
-                                onChange={user.onChange}
-                                maxLength={10}
-                                data-testid="user"
-                                placeholder='Blackpanther'
-                            />
-                        </div>
-                        <div className='error-message'>{
-                            user.classNameMessage.map(error => {
-                                return <span key={error}>{error}</span>;
-                            })}</div>
-                        <div className="boxInput">
-                            <label htmlFor="name">Name:</label>
-                            <input
-                                type="text"
-                                id="name"
-                                value={name.value}
-                                className={name.className}
-                                onChange={name.onChange}
-                                data-testid="name"
-                                placeholder='Toni'
-                            />
-                        </div>
-                        <div className='error-message'>{
-                            name.classNameMessage.map(error => {
-                                return <span key={error}>{error}</span>;
-                            })}</div>
-                        <div className="boxInput">
-                            <label htmlFor="surname">Surname:</label>
-                            <input
-                                type="text"
-                                id="surname"
-                                value={surname.value}
-                                className={surname.className}
-                                onChange={surname.onChange}
-                                data-testid="surname"
-                                placeholder='Recio'
-                            />
-                        </div>
-                        <div className='error-message'>{
-                            surname.classNameMessage.map(error => {
-                                return <span key={error}>{error}</span>;
-                            })}</div>
+                        <FormField
+                            id="user"
+                            label="User"
+                            type="text"
+                            value={user.value}
+                            className={user.className}
+                            onChange={user.onChange}
+                            maxLength={10}
+                            placeholder='Blackpanther'
+                        />
+                        <ErrorField messages={user.classNameMessage} />
+                        <FormField
+                            id="name"
+                            label="Name"
+                            type="text"
+                            value={name.value}
+                            className={name.className}
+                            onChange={name.onChange}
+                            maxLength={10}
+                            placeholder='Toni'
+                        />
+                        <ErrorField messages={name.classNameMessage} />
+                        <FormField
+                            id="surname"
+                            label="Surname"
+                            type="text"
+                            value={surname.value}
+                            className={surname.className}
+                            onChange={surname.onChange}
+                            maxLength={10}
+                            placeholder='Recio'
+                        />
+                        <ErrorField messages={surname.classNameMessage} />
                         <div className="boxInput">
                             <label htmlFor="country">Country:</label>
                             <select
@@ -144,22 +130,16 @@ export function Form() {
                             </select>
                         </div>
                         <div className='error-message'>{country.classNameMessage}</div>
-                        <div className="boxInput">
-                            <label htmlFor="dni">DNI:</label>
-                            <input
-                                type="text"
-                                id="dni"
-                                value={dni.value}
-                                className={dni.className}
-                                onChange={dni.onChange}
-                                data-testid="dni"
-                                placeholder='11111111H'
-                            />
-                        </div>
-                        <div className='error-message'>{
-                            dni.classNameMessage.map(error => {
-                                return <span key={error}>{error}</span>;
-                            })}</div>
+                        <FormField
+                            id="dni"
+                            label="Dni"
+                            type="text"
+                            value={dni.value}
+                            className={dni.className}
+                            onChange={dni.onChange}
+                            placeholder='11111111H'
+                        />
+                        <ErrorField messages={dni.classNameMessage} />
                     </main>
 
                     <footer className="footer">
