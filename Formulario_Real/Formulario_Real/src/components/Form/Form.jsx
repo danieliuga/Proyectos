@@ -45,9 +45,6 @@ export function Form() {
             country.error == false &&
             dni.error == false) {
             console.log('Form submitted successfully')
-        } else if (user.error || name.error || surname.error ||
-            country.error || dni.error) {
-            setClassName('error-disable')
         }
     }
 
@@ -91,7 +88,7 @@ export function Form() {
                             maxLength={10}
                             placeholder='Blackpanther'
                         />
-                        <ErrorField messages={user.classNameMessage} />
+                        <ErrorField messages={user.classNameMessage} id={'user-error'}/>
                         <FormField
                             id="name"
                             label="Name"
@@ -102,7 +99,7 @@ export function Form() {
                             maxLength={10}
                             placeholder='Toni'
                         />
-                        <ErrorField messages={name.classNameMessage} />
+                        <ErrorField messages={name.classNameMessage} id={'name-error'}/>
                         <FormField
                             id="surname"
                             label="Surname"
@@ -113,7 +110,7 @@ export function Form() {
                             maxLength={10}
                             placeholder='Recio'
                         />
-                        <ErrorField messages={surname.classNameMessage} />
+                        <ErrorField messages={surname.classNameMessage} id={'surname-error'}/>
                         <div className="boxInput">
                             <label htmlFor="country">Country:</label>
                             <select
@@ -139,7 +136,7 @@ export function Form() {
                             onChange={dni.onChange}
                             placeholder='11111111H'
                         />
-                        <ErrorField messages={dni.classNameMessage} />
+                        <ErrorField messages={dni.classNameMessage} id={'dni-error'}/>
                     </main>
 
                     <footer className="footer">

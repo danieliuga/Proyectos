@@ -1,4 +1,4 @@
-Feature: Form
+Feature: A form create for simple data
 
     Background:
         Given the user open a simple form
@@ -6,123 +6,79 @@ Feature: Form
     Scenario: Check Formulario
         Then I should see the formulario
 
-    Scenario: Text User Area
+    Scenario: Validate the user text at the moment you write it
         Given you write "dani" in "user"
         Then I should see "DANI" in "user"
 
-    Scenario: Text Name Area
+    Scenario: Validate the name text at the moment you write it
         Given you write "joel" in "name"
         Then I should see "JOEL" in "name"
 
-    Scenario: Text Surname Area
+    Scenario: Validate the surname text at the moment you write it
         Given you write "iuga" in "surname"
         Then I should see "IUGA" in "surname"
 
-    Scenario: Text DNI Area
+    Scenario: Validate the dni text at the moment you write it
         Given you write "49270614z" in "dni"
         Then I should see "49270614Z" in "dni"
 
-    Scenario: press button 'clear' in user
+    Scenario: press the button 'clear' in user
         Given you press the "clearButton" button
         Then I should see nothing in "user"
 
-    Scenario: press button 'clear' in name
+    Scenario: press the button 'clear' in name
         Given you press the "clearButton" button
         Then I should see nothing in "name"
 
-    Scenario: press button 'clear' in surname
+    Scenario: press the button 'clear' in surname
         Given you press the "clearButton" button
         Then I should see nothing in "surname"
 
-    Scenario: press button 'clear' in DNI
+    Scenario: press the button 'clear' in DNI
         Given you press the "clearButton" button
         Then I should see nothing in "dni"
 
-    Scenario: Validación de DNI
+    Scenario: Validate de dni in the form when you write it
         Given you write "12345678A" in "dni"
         When you press the "submitButton" button
         Then I should see "12345678A" in "dni"
 
-    Scenario: select the 'España' option
+    Scenario: select the 'country' option that is acord to your dni 
         Given you press the "countryButton" button
-        And select the 'España' option
-        Then I should see 'España' in "countryButton"
+        Then I should see "Choose a country" in "countryButton"
 
-    Scenario: select the 'country' option
-        Given you press the "countryButton" button
-        Then I should see 'Choose a country' in "countryButton"
+    Scenario: Manage the error when you don't write anything in user
+        Given you write nothing in "user"
+        Then I should see "Required" error in input "user-error"
 
-    Scenario: Manage user text area errors
-        Given you press the "submitButton" button
-        Then I should see a 'Required' in "user"
+    Scenario: Manage the error when you don't write anything in name
+        Given you write nothing in "name"
+        Then I should see "Required" error in input "name-error"
 
-    Scenario: Manage name text area errors
-        Given you press the "submitButton" button
-        Then I should see a 'Required' in "name"
+    Scenario: Manage the error when you don't write anything in surname
+        Given you write nothing in "surname"
+        Then I should see "Required" error in input "surname-error"
 
-    Scenario: Manage surname text area errors
-        Given you press the "submitButton" button
-        Then I should see a 'Required' in "surname"
+    Scenario: Manage the error when you don't write anything in dni
+        Given you write nothing in "dni"
+        Then I should see "Required" error in input "dni-error"
 
-    Scenario: Manage country text area errors
-        Given you press the "submitButton" button
-        Then I should see a 'Required' in "countryButton"
+    Scenario Outline: Validate de dni with his correspondent country
+        When the user enters "country" on "countryButton"
+        And the user enters "<dni>" on "dni"
+        Then the "<dni>" should show no message error
+        Examples:
+            | country   | dni       |
+            | España    | 49220078D |
+            | Argentina | 12345678  |
 
-    Scenario: Manage dni text area errors
-        Given you press the "submitButton" button
-        Then I should see a 'Required' in "dni"
+    Scenario: manage 'user' error when has the same name as 'name'
+        Given you write "DANI" in "user"
+        When you write "DANI" in "name"
+        Then I should see "User cannot contain name" error in the input "user-error"
 
-    Scenario: validate the dni when you write it in the form
-        Given you select the opction 'España' in "submitButton" button
-        And you write '11111111H' in "dni"
-        Then I shouldn't see the 'User cannot contain name' message in "dni"
+    Scenario: manage 'dni' error whe his validation is failed
+        Given you write "49270614Y" in "dni"
+        Then I should see "DNI validation failed" error in the input "dni-error" 
 
-    # Scenario: validate a spanish dni when you write it in the form
-    #     Given you select the opction 'España' in "submitButton" button
-    #     And you write "49270614Z" in "dni"
-    #     And there is not error in "dni"
-    #     Then I should see "49270614Z" in "dni"
-
-# No me ha salido
-# Scenario: Trying to send form without select a country
-#     Given you write "Dani" in "user"
-#     And you write "Joel" in "name"
-#     And you write "Iuga" in "surname"
-#     And you write "49270614Z" in "dni"
-#     When you press the "submitButton" button
-#     Then I should see an error message in "country" indicating it's a required field
-
-#Nuevo
-# Scenario: Manage the error when you write the same words in user and in name
-#     Given you write 'DA' in "user"
-#     And you write 'Da' in "name"
-#     Then I should see a 'User cannot contain name' in "user"
-
-
-# ------------------------------------------------------------
-
-# puedo añadir: 
-
-# Form submitted
-
-# Scenario: Send form submitted successfully
-#     Given you press the "submitButton" button
-#     Then I should see "Form submitted successfully" in the console
-
-
-
-# Scenario: Cambiar la Selección de País
-#     Given you select "España" in the "country" dropdown
-#     And you write "49270614z" in "dni"
-#     When you press the "submitButton" button
-#     Then I should see "Formulario enviado exitosamente" in the console
-
-
-
-
-
-
-
-
-
-
+    

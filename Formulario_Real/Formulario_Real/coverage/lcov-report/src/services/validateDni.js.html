@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for services/validateDni.js</title>
+    <title>Code coverage report for src/services/validateDni.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">services</a> validateDni.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/services</a> validateDni.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.41% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/17</span>
+                <span class='fraction'>0/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.41% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/17</span>
+                <span class='fraction'>0/17</span>
             </div>
         
             
@@ -90,13 +90,13 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">44x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">44x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -106,19 +106,19 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">44x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">44x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">44x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-export function validateDNI(dni, country) {
+export function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >validateDNI(d</span></span>ni, country) {
 &nbsp;
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (country === 'España') {
+<span class="cstat-no" title="statement not covered" >  if (country === 'España') {</span>
     
     const dniRegExp = <span class="cstat-no" title="statement not covered" >/^[0-9]{8}[A-HJ-NP-TV-Z]$/;</span>
 &nbsp;
@@ -132,14 +132,14 @@ export function validateDNI(dni, country) {
   const validLetter = <span class="cstat-no" title="statement not covered" >letterValues.charAt(Number(number) % 23);</span>
 <span class="cstat-no" title="statement not covered" >  return letter === validLetter;</span>
 &nbsp;
-  } else <span class="missing-if-branch" title="if path not taken" >I</span>if (country === 'Argentina') {
+  } else <span class="cstat-no" title="statement not covered" >if (country === 'Argentina') {</span>
     const dniRegExp = <span class="cstat-no" title="statement not covered" >/^[0-9]{8}$/;</span>
 <span class="cstat-no" title="statement not covered" >    return dni.match(dniRegExp) !== null;</span>
-  } else <span class="missing-if-branch" title="if path not taken" >I</span>if (country === 'Rumania') {
+  } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if (country === 'Rumania') {</span>
     const dniRegExp = <span class="cstat-no" title="statement not covered" >/^[0-9]{6}[A-Z]{2}$/;</span>
 <span class="cstat-no" title="statement not covered" >    return dni.match(dniRegExp) !== null;</span>
   }
-  return false;
+<span class="cstat-no" title="statement not covered" >  return false;</span>
 };
 &nbsp;</pre></td></tr></table></pre>
 
@@ -148,16 +148,16 @@ export function validateDNI(dni, country) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-28T15:51:43.622Z
+                at 2023-09-28T09:08:30.967Z
             </div>
-        <script src="../prettify.js"></script>
+        <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../sorter.js"></script>
-        <script src="../block-navigation.js"></script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
     </body>
 </html>
     

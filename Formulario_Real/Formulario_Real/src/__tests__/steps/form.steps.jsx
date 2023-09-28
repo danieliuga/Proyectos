@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
+import { userEvent } from '@testing-library/user-event'
 import { Form } from '../../components/Form/Form'
 
 export const formulario = ({
@@ -22,36 +23,24 @@ export const formulario = ({
         fireEvent.click(button);
     });
 
-    Given(/^you select the opction 'España' in "(.*)" button$/, (arg0) => {
-        const countryButton = screen.findByTestId('countryButton');
-        expect(countryButton).toBe(countryButton)
-
-        const spainOption = screen.findByTestId('spainOption');
-        expect(spainOption).toBe(spainOption);
+    //Nuevo funciona
+    Given(/^you write nothing in "(.*)"$/, async (nullValue) => {
+        const element = screen.getByTestId(nullValue);
+        userEvent.clear(element);
+        await userEvent.type(element, 'test');
+        userEvent.clear(element);
     });
 
-    And('select the \'España\' option', () => {
-        const countryButton = screen.findByTestId('countryButton');
-        expect(countryButton).toBe(countryButton)
-
-        const spainOption = screen.findByTestId('spainOption');
-        expect(spainOption).toBe(spainOption);
+    //nuevo funciona
+    When(/^the user enters "(.*)" on "(.*)"$/, async (value, input) => {
+        const inputField = screen.getByTestId(input);
+        await userEvent.type(inputField, value);
     });
 
     //Nuevo
-    // And(/^you write "(.*)" in "(.*)"$/, (text, textBox) => {
-    //     fireEvent.change(screen.getByTestId(textBox), { target: { value: text } });
-    // });
-
-    //Nuevo
-    // And(/^there is not error in "(.*)"$/, (error) => {
-    //     const element = screen.getByTestId(!error);
-    //     expect(element).toBeInTheDocument();
-    //     expect(element.value).toBe(element.value);
-    // });
-
-    And(/^you write '(\d+)H' in "(.*)"$/, (text, textBox) => {
-        fireEvent.change(screen.getByTestId(textBox), { target: { value: text } });
+    When(/^the user presses the "(.*)" button$/, (buttonName) => {
+        const button = screen.getByTestId(buttonName);
+        fireEvent.click(button);
     });
 
     Then('I should see the formulario', () => {
@@ -62,78 +51,69 @@ export const formulario = ({
 
     Then(/^I should see "(.*)" in "(.*)"$/, (text, textBox) => {
         var theValue = false
+        console.log(screen.getByTestId(textBox).value, text);
         if (screen.getByTestId(textBox).value == text) theValue = true;
         expect(theValue).toBe(true)
     });
-
-    //Nuevo
-    
 
     Then(/^I should see nothing in "(.*)"$/, (nullValue) => {
         const element = screen.getByTestId(nullValue);
         expect(element).toBeInTheDocument();
         expect(element.value).toBe('');
     });
-
-    Then(/^I should see 'España' in "(.*)"$/, (nameCountry) => {
-        const element = screen.getByTestId(nameCountry);
+    //Nuevo funciona
+    Then(/^I should see "(.*)" error in input "(.*)"$/, (error, id) => {
+        const element = screen.getByTestId(id);
         expect(element).toBeInTheDocument();
-        expect(element.value).toBe(element.value);
+        expect(element.innerHTML).toBe(error);
     });
 
-    Then(/^I should see 'Choose a country' in "(.*)"$/, (text) => {
-        const element = screen.getByTestId(text);
+    //Nuevo
+    Then(/^I should see "(.*)" error in the input "(.*)"$/, (error, id) => {
+        const element = screen.getByTestId(id);
         expect(element).toBeInTheDocument();
-        expect(element.value).toBe(element.value);
+        expect(element.value).toBe(error.value);
     });
 
-    Then(/^I should see a 'Required' in "(.*)"$/, (error) => {
-        const element = screen.getByTestId(error);
-        expect(element).toBeInTheDocument();
-        expect(element.value).toBe(element.value);
+    //nuevo funciona
+    Then(/^the "(.*)" should show no message error$/, () => {
+        const countryField = screen.getByTestId("countryButton");
+        const idField = screen.getByTestId("dni");
+        const country = countryField.value.toUpperCase();
+        const id = idField.value;
+        if (country === "España") {
+            expect(id).toMatch(/^[0-9]{8}[A-HJ-NP-TV-Z]$/);
+        } else if (country === "Argentina") {
+            expect(id).toMatch(/^[0-9]{8}$/);
+        } else {
+            expect(true).toBe(true);
+        }
     });
 
-    Then(/^I shouldn't see the 'User cannot contain name' message in "(.*)"$/, (error) => {
-        const element = screen.getByTestId(error);
-        expect(element).toBeInTheDocument();
-        expect(element.value).toBe(element.value);
-    });
+    // Given(/^you select "(.*)" in "(.*)"$/, (text, textBox) => {
+    //     fireEvent.change(screen.getByTestId(textBox), { target: { value: text } });
+    // });
+
+    // When(/^you write "(.*)" in "(.*)"$/, (text, textBox) => {
+    //     fireEvent.change(screen.getByTestId(textBox), { target: { value: text } });
+    // });
+
+
+
+    //Nuevo
+    // Given(/^you select the opction "(.*)" in "(.*)" button$/, (text, textBox) => {
+    //     fireEvent.select(screen.getByTestId(textBox), { target: { value: text } });
+    // });
+
+    // When(/^you write "(.*)" in "(.*)"$/, (text, textBox) => {
+    //     fireEvent.change(screen.getByTestId(textBox), { target: { value: text } });
+    // });
+
+    // Then(/^I should see "(.*)" message in "(.*)"$/, (arg0, arg1) => {
+
+    // });
+
 
 }
 export default formulario
 
-// Scenario: Manage the error when you write the same words in user and in name
-
-//Nuevo
-    // Given(/^you write 'DA' in "(.*)"$/, (text, textBox) => {
-    //     fireEvent.change(screen.findByTestId(textBox), { target: { value: text } });    
-    // });
-
-//Nuevo
-    // And(/^you write 'Da' in "(.*)"$/, (text, textBox) => {
-    //     fireEvent.change(screen.getByTestId(textBox), { target: { value: text } });
-    // });
-
-//Nuevo
-    // Then(/^I should see a 'User cannot contain name' in "(.*)"$/, (error) => {
-    //     const element = screen.getByTestId(error);
-    //     expect(element).toBeInTheDocument();
-    //     expect(element.value).toBe(element.value);
-    // });
-
-//Scenario: Trying to send form without select a country
-
-    // And(/^you write "(.*)" in "(.*)"$/, (text, textBox) => {
-    //     fireEvent.change(screen.getByTestId(textBox), { target: { value: text } });
-    // });
-
-    // When(/^you press the "(.*)" button$/, (buttonName) => {
-    //     const button = screen.getByTestId(buttonName);
-    //     fireEvent.click(button);
-    // });
-
-    // Then(/^I should see an error message in "(.*)" indicating it's a required field$/, (error) => {
-    //     const element = screen.getByTestId(error);
-    //     expect(element).toBeInTheDocument();
-    //     expect(element.value).toBe(element.value);
-    // });
