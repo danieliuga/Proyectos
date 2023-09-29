@@ -36,6 +36,25 @@ export function Form() {
 
     }, [dni.value, country.value]);
 
+    const openInfoWindow = () => {
+        const formData = {
+            User: user.value,
+            Name: name.value,
+            Surname: surname.value,
+            Country: country.value,
+            DNI: dni.value,
+        };
+
+        // Convierte el objeto formData en una cadena de texto para mostrarlo en la ventana
+        const infoText = Object.entries(formData)
+            .map(([key, value]) => `${key}: ${value}`)
+            .join('\n');
+
+        const infoWindow = window.open('', 'Form Data', 'width=400,height=400');
+        infoWindow.document.write(`<pre>${infoText}</pre>`);
+    };
+
+
     const onSubmit = (e) => {
         e.preventDefault()
 
@@ -44,7 +63,7 @@ export function Form() {
             surname.error == false &&
             country.error == false &&
             dni.error == false) {
-            console.log('Form submitted successfully')
+            openInfoWindow();
         }
     }
 
@@ -60,14 +79,6 @@ export function Form() {
     const onSubmitForm = (e) => {
 
     };
-
-    /*
-    Objetivos:
-        - mas tests
-        - componente de cada input
-        - mejorar descripcion de cada escenario
-        - disable el boton de submit si hay errores
-    */
 
     return (
         <div className="hola" data-testid="formulario">
@@ -88,7 +99,7 @@ export function Form() {
                             maxLength={10}
                             placeholder='Blackpanther'
                         />
-                        <ErrorField messages={user.classNameMessage} id={'user-error'}/>
+                        <ErrorField messages={user.classNameMessage} id={'user-error'} />
                         <FormField
                             id="name"
                             label="Name"
@@ -99,7 +110,7 @@ export function Form() {
                             maxLength={10}
                             placeholder='Toni'
                         />
-                        <ErrorField messages={name.classNameMessage} id={'name-error'}/>
+                        <ErrorField messages={name.classNameMessage} id={'name-error'} />
                         <FormField
                             id="surname"
                             label="Surname"
@@ -110,7 +121,7 @@ export function Form() {
                             maxLength={10}
                             placeholder='Recio'
                         />
-                        <ErrorField messages={surname.classNameMessage} id={'surname-error'}/>
+                        <ErrorField messages={surname.classNameMessage} id={'surname-error'} />
                         <div className="boxInput">
                             <label htmlFor="country">Country:</label>
                             <select
@@ -136,7 +147,7 @@ export function Form() {
                             onChange={dni.onChange}
                             placeholder='11111111H'
                         />
-                        <ErrorField messages={dni.classNameMessage} id={'dni-error'}/>
+                        <ErrorField messages={dni.classNameMessage} id={'dni-error'} />
                     </main>
 
                     <footer className="footer">
